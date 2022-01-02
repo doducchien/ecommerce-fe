@@ -1,0 +1,34 @@
+@import 'antd/dist/antd.css';
+// body {
+//   margin: 0;
+//   font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+//   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+//   'Noto Color Emoji';
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+$header-background-color: #FFFFFF;
+$sider-background-color: #FFFFFF;
+$title-header-color: #088178;
+
+$font-size-header: 20px;
+
+
+
+@import './styles/admin/login_page.scss';
+@import './styles/admin/home.scss';
+@import './styles/admin/category/list_cateogry.scss';
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

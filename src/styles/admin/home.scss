@@ -1,0 +1,40 @@
+.home-admin{
+    height: 100vh ;
+    background-color: red;
+    .menu-sider{
+        overflow: auto;
+        background-color: $sider-background-color;
+        .header-menu-sider{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            background-color: $header-background-color;
+            color: #088178;
+            img{
+                height: 70%;
+            }
+           
+        }
+    }
+    .content-page{
+        padding: 15px;
+    }
+
+    .header-layout{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $header-background-color;
+        .header-title{
+            font-size: $font-size-header;
+            vertical-align: middle;
+            margin: 0;
+            color: $title-header-color;
+            
+        }
+    }
+
+    
+
+}
