@@ -1,4 +1,4 @@
-import { ContainerOutlined, UnorderedListOutlined, CreditCardOutlined, UserOutlined, LineChartOutlined } from '@ant-design/icons';
+import { ContainerOutlined, UnorderedListOutlined, CreditCardOutlined, LineChartOutlined } from '@ant-design/icons';
 
 export const listTitle = [
     {
@@ -22,7 +22,7 @@ export const listTitle = [
                 label: "Add category"
             },
             {
-                code: "udpate-category",
+                code: "update-category",
                 label: "Update category"
             },
         ]

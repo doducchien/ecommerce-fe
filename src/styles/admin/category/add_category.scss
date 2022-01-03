@@ -1,0 +1,11 @@
+.add-category-page{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    .img-upload{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border: 1px dotted gray;
+    }
+}

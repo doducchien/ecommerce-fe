@@ -74,7 +74,7 @@ function Home() {
 
     return (
 
-        <Layout className='home-admin'>
+        <Layout style={{ position: 'relative', overflow: 'auto' }} className='home-admin'>
             <Sider
                 className='menu-sider'
 

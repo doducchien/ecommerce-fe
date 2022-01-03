@@ -5,6 +5,9 @@ export const commonResponse = (response) => {
     switch (statusCode) {
         case 200: {
             statusRequest = true;
+        }
+        case 201: {
+            statusRequest = true;
             break;
         }
 

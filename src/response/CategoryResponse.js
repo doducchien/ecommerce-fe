@@ -22,7 +22,7 @@ class CategoryItem {
         this.name = name || "";
         this.parent_id = parent_id || "";
         this.line_age = line_age || "";
-        this.image = "http://localhost:9000/api/v1/" + image || "";
+        this.image = "http://localhost:9000/upload/" + image || "";
         this.createdAt = new Date(createdAt).toLocaleDateString() || "";
         this.updatedAt = new Date(updatedAt).toLocaleDateString() || "";
     }

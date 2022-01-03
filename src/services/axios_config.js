@@ -1,12 +1,23 @@
 import axios from "axios";
 import { commonResponse } from "../constants/common_response";
+import { localSpace } from "./local/local_space";
+import { keyLocal } from "../constants/key_local";
 
-export default function axiosConfig() {
+export default function axiosConfig(requireToken) {
+    const getToken = () => {
+        const authen = localSpace.getData(keyLocal.AUTHEN);
+        const token = "Bearer " + (authen?.information?.data?.accessToken || "");
+        return token;
+    }
     const init = axios.create({
         baseURL: "http://localhost:9000",
         timeout: 1000,
 
     })
+
+    if (requireToken) {
+        init.defaults.headers.common.Authorization = getToken();
+    }
 
     init.interceptors.request.use(function (config) {
         return config;

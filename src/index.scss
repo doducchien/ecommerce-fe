@@ -17,7 +17,7 @@ code {
 $header-background-color: #FFFFFF;
 $sider-background-color: #FFFFFF;
 $title-header-color: #088178;
-
+$color-hover: #0c5e58;
 $font-size-header: 20px;
 
 
@@ -25,6 +25,7 @@ $font-size-header: 20px;
 @import './styles/admin/login_page.scss';
 @import './styles/admin/home.scss';
 @import './styles/admin/category/list_cateogry.scss';
+@import './styles/admin/category/add_category.scss';
 
 
 *{

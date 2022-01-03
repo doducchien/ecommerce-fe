@@ -1,12 +1,14 @@
 import axiosConfig from "./axios_config";
 
 
-export default function apiService() {
+
+export default function apiService(requireToken = false) {
+    axiosConfig().post()
     const getMethod = (path, param) => {
         const paramString = new URLSearchParams(param);
         const url = `${path}?${paramString}`;
         try {
-            const serverResponse = axiosConfig().get(url);
+            const serverResponse = axiosConfig(requireToken).get(url);
             return serverResponse;
         }
         catch (e) {
@@ -16,7 +18,7 @@ export default function apiService() {
 
     const postMethod = (path, body) => {
         try {
-            const serverResponse = axiosConfig().post(path, body);
+            const serverResponse = axiosConfig(requireToken).post(path, body);
             return serverResponse;
         }
         catch (e) {
@@ -26,7 +28,7 @@ export default function apiService() {
 
     const putMethod = (path, body) => {
         try {
-            const serverResponse = axiosConfig().put(path, body);
+            const serverResponse = axiosConfig(requireToken).put(path, body);
             return serverResponse;
         }
         catch (e) {
@@ -36,7 +38,7 @@ export default function apiService() {
 
     const deleteMethod = (path, body) => {
         try {
-            const serverResponse = axiosConfig().delete(path, body);
+            const serverResponse = axiosConfig(requireToken).delete(path, body);
             return serverResponse;
         }
         catch (e) {
