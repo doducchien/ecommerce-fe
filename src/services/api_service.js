@@ -3,7 +3,6 @@ import axiosConfig from "./axios_config";
 
 
 export default function apiService(requireToken = false) {
-    axiosConfig().post()
     const getMethod = (path, param) => {
         const paramString = new URLSearchParams(param);
         const url = `${path}?${paramString}`;

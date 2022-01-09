@@ -1,5 +1,5 @@
 export const commonResponse = (response) => {
-    const { data, message, statusCode } = response;
+    let { data, message, statusCode } = response;
     // TODO
     var statusRequest = null;
     switch (statusCode) {
@@ -10,6 +10,11 @@ export const commonResponse = (response) => {
             statusRequest = true;
             break;
         }
+        // case 204: {
+        //     statusRequest = false;
+        //     message = ""
+
+        // }
 
         default: {
             statusRequest = false;

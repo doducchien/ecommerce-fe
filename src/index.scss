@@ -27,6 +27,11 @@ $font-size-header: 20px;
 @import './styles/admin/category/list_cateogry.scss';
 @import './styles/admin/category/add_category.scss';
 
+//product
+@import './styles/admin/product/list_product.scss';
+@import './styles/admin/product/product_detail.scss';
+@import './styles/admin/comment/comment_on_product.scss';
+
 
 *{
   margin: 0;

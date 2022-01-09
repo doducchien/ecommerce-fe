@@ -1,11 +1,11 @@
-import apiService from "../api_service"
-
+import apiService from "../api_service";
+const categoryPath = "api/v1/categories";
 const getAllCategory = async () => {
-    const result = await apiService().getMethod("api/v1/categories", {});
+    const result = await apiService().getMethod(categoryPath, {});
     return result;
 }
 const getDetailCategory = async (categoryId) => {
-    const result = await apiService().getMethod("api/v1/categories", { id: categoryId })
+    const result = await apiService().getMethod(categoryPath, { id: categoryId })
     return result;
 }
 
@@ -13,7 +13,19 @@ const addCategory = async (name, image) => {
     const formData = new FormData();
     formData.append("image", image);
     formData.append("name", name)
-    const result = await apiService(true).postMethod("api/v1/categories", formData)
+    const result = await apiService(true).postMethod(categoryPath, formData)
     return result;
 }
-export const categoryService = { getAllCategory, getDetailCategory, addCategory };
+const updateCategory = async (categoryId, categoryName, selectedImage) => {
+    const formData = new FormData();
+    formData.append("image", selectedImage);
+    formData.append("name", categoryName);
+    const result = await apiService(true).putMethod(`${categoryPath}/${categoryId}`, formData)
+    return result;
+}
+export const categoryService = {
+    getAllCategory,
+    getDetailCategory,
+    addCategory,
+    updateCategory
+};

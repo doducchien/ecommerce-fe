@@ -1,3 +1,7 @@
+const HOST = process.env.REACT_APP_API_ENDPOINT;
+
+const UPLOAD = `${HOST}/upload`
+
 const PUBLIC = '/';
 
 // ADMIN
@@ -11,9 +15,14 @@ const CATEGORY_ADMIN_LIST = `${CATEGORY_ADMIN}/list-category`;
 const CATEGORY_ADMIN_UPDATE = `${CATEGORY_ADMIN}/update-category/:categoryId`;
 const CATEGORY_ADMIN_ADD = `${CATEGORY_ADMIN}/add-category`;
 
+const PRODUCT_ADMIN = `${ADMIN}/product`;
+const PRODUCT_ADMIN_ADD = `${PRODUCT_ADMIN}/add`;
+const PRODUCT_ADMIN_DETAIL = `${PRODUCT_ADMIN}/detail/:id`;
 
 
 export const listRoute = {
+    HOST,
+    UPLOAD,
     PUBLIC,
     ADMIN,
     AUTHEN,
@@ -23,5 +32,7 @@ export const listRoute = {
     CATEGORY_ADMIN,
     CATEGORY_ADMIN_LIST,
     CATEGORY_ADMIN_UPDATE,
-    CATEGORY_ADMIN_ADD
+    CATEGORY_ADMIN_ADD,
+    PRODUCT_ADMIN,
+    PRODUCT_ADMIN_DETAIL
 }

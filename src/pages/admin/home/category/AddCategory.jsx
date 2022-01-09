@@ -5,24 +5,15 @@ import useAddCategory from './hook/add_category_hook';
 
 
 function AddCategory(props) {
-    const { data, setData, onAddCategory } = props.dataControl;
+    const { onAddCategory } = props.dataControl;
     const { selectedImage,
         categoryName,
-        setCategoryName,
         clearData,
         beforeUpload,
         onChangeInput,
-        onSubmit
     } = useAddCategory();
 
-    useEffect(() => {
-        // if (categoryName && selectedImage.length > 0) {
-        //     setData({
-        //         categoryName,
-        //         selectedImage: selectedImage[0]
-        //     })
-        // }
-    }, [categoryName, selectedImage])
+
 
     const genImgUpload = () => {
         if (selectedImage.length > 0) {
@@ -36,12 +27,11 @@ function AddCategory(props) {
                     listType="picture-card"
                     accept='.png'
                     showUploadList={false}
-                    action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                     beforeUpload={beforeUpload}
                 >
                     <div>
                         <PlusOutlined />
-                        <div style={{ marginTop: 8 }}>Category Icon</div>
+                        <div style={{ marginTop: 8 }}>New Icon</div>
                     </div>
                 </Upload>
             </div>
@@ -55,7 +45,7 @@ function AddCategory(props) {
 
             </Row>
 
-            <Input onChange={onChangeInput} style={{ margin: "15px 0" }} placeholder='Name of category' />
+            <Input onChange={onChangeInput} style={{ margin: "15px 0" }} placeholder='Rename for category' />
             <Row>
                 <Col span={12}>
                     <Button

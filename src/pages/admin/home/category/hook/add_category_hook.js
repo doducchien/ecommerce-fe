@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import AddCategory from "../AddCategory";
+import { addCategoryAction } from "../slice/addCategory.slice";
 
 const useAddCategory = () => {
     const dispatch = useDispatch()
+    const [showModal, setShowModal] = useState(false);
+
     const [selectedImage, setSelectedImage] = useState([])
     const [categoryName, setCategoryName] = useState("");
 
@@ -12,6 +14,13 @@ const useAddCategory = () => {
             setSelectedImage([]);
         }
     }, [])
+
+    const onShowModal = () => {
+        setShowModal(true);
+    }
+    const onCloseModal = () => {
+        setShowModal(false);
+    }
 
     const clearData = () => {
         setSelectedImage([]);
@@ -31,18 +40,25 @@ const useAddCategory = () => {
         return false;
     }
 
-    const onSubmit = (cate) => {
-        dispatch(AddCategory())
+
+
+    const onAddCategory = (data) => {
+        const { categoryName, selectedImage } = data;
+        onCloseModal();
+        dispatch(addCategoryAction({ categoryName, selectedImage }))
     }
 
     return {
         selectedImage,
         categoryName,
+        showModal,
+        onShowModal,
+        onCloseModal,
         setCategoryName,
         clearData,
         beforeUpload,
         onChangeInput,
-        onSubmit
+        onAddCategory
     }
 }
 

@@ -1,0 +1,20 @@
+.product-detail-page{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    .left, .right{
+        width: 50%;
+        padding: 25px;
+    }
+    .left{
+        // background-color: #e9e7f1;
+        
+    }
+    .right{
+        text-align: left;
+        background-color: white;
+        border-radius: 20px;
+    }
+}

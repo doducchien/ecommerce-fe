@@ -1,0 +1,37 @@
+.list-product-page{
+    // background-color: white  !important;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 10px;
+    .list-data{
+        margin-top: 20px;
+        float: left;
+        text-align: left;
+        justify-content: flex-start;
+        width: 100%;
+        background-color: transparent;
+
+    .product-item{
+        // text-align: center;
+        display: inline-block;
+        width: fit-content;
+        background-color: white;
+        margin-right: 25px;
+        margin-bottom: 25px;
+        width: 15%;
+
+        .text{
+            padding-left: 10px;
+            width: 100%;
+            .title{
+                font-weight: bold;
+            }
+            .price{
+                color: rgb(196, 192, 192);
+            }
+        }
+    }
+    }
+    
+}

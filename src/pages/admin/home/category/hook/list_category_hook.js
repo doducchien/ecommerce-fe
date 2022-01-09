@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useLayout from "../../../../../common_hook/layout_hook";
 import { getAllCategoryAction } from "../slice/listCategory.slice";
 import { addCategoryAction } from "../slice/addCategory.slice";
 import { CategoryResponse } from "../../../../../response/CategoryResponse";
@@ -10,17 +9,16 @@ import { message } from "antd";
 const useListCategory = () => {
     const history = useHistory();
     const dispatch = useDispatch();
-    const [showModal, setShowModal] = useState(false);
     const listCategory = useSelector(state => state?.category?.listCategory?.information);
     const addCategoryResult = useSelector(state => state?.category?.addCategoryResult);
+    const update_detail_category = useSelector(state => state?.category?.update_detail_category);
 
     const [information, setInformation] = useState([]);
 
-    useLayout({ code: 'list-category', label: 'List category' })
 
     useEffect(() => {
         dispatch(getAllCategoryAction());
-    }, [])
+    }, [addCategoryResult, update_detail_category])
 
     useEffect(() => {
         if (listCategory) {
@@ -40,28 +38,27 @@ const useListCategory = () => {
         }
     }, [addCategoryResult])
 
+    useEffect(() => {
+        console.log(update_detail_category)
+        if (update_detail_category?.message && update_detail_category?.information) {
+            const { isLoading, isSuccess, message: messageR } = update_detail_category;
+            if (!isLoading) {
+                if (isSuccess) message.success(messageR)
+                else message.error(messageR)
+            }
+
+        }
+    }, [update_detail_category])
 
 
-    const onShowModal = () => {
-        setShowModal(true);
-    }
-    const onCloseModal = () => {
-        setShowModal(false);
-    }
+
+
     const onClickDetail = (id) => {
         console.log(id)
     }
 
-    const onClickUpdate = (id) => {
 
-        history.push(`${listRoute.CATEGORY_ADMIN_UPDATE.split(":")[0]}${id}`);
-    }
 
-    const onAddCategory = (data) => {
-        const { categoryName, selectedImage } = data;
-        onCloseModal();
-        dispatch(addCategoryAction({ categoryName, selectedImage }))
-    }
 
 
 
@@ -69,11 +66,6 @@ const useListCategory = () => {
         information,
         addCategoryResult,
         onClickDetail,
-        onClickUpdate,
-        onAddCategory,
-        showModal,
-        onShowModal,
-        onCloseModal,
     }
 }
 

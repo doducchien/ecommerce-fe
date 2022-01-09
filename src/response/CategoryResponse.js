@@ -1,3 +1,5 @@
+import { listRoute } from "../constants/list_route";
+
 var index = 1;
 export class CategoryResponse {
     constructor({ data, current_page, limit, total }) {
@@ -22,7 +24,7 @@ class CategoryItem {
         this.name = name || "";
         this.parent_id = parent_id || "";
         this.line_age = line_age || "";
-        this.image = "http://localhost:9000/upload/" + image || "";
+        this.image = `${listRoute.UPLOAD}/${image}` || "";
         this.createdAt = new Date(createdAt).toLocaleDateString() || "";
         this.updatedAt = new Date(updatedAt).toLocaleDateString() || "";
     }
