@@ -35,7 +35,6 @@ const useCommentProduct = ({ productId }) => {
     }
 
     useEffect(() => {
-        console.log("wgrgerg")
 
         if (rateActive !== -1 && productId) {
             const data = {
