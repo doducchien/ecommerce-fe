@@ -12,6 +12,7 @@ import useHome from './home.hook';
 import Category from './category/Category';
 import { listRoute } from '../../../constants/list_route';
 import Product from './product/Product';
+import Order from './order/Order';
 const { SubMenu } = Menu;
 
 // submenu keys of first level
@@ -96,6 +97,10 @@ function Home() {
 
                         <Route key={listRoute.PRODUCT_ADMIN} path={listRoute.PRODUCT_ADMIN}>
                             <Product />
+                        </Route>
+
+                        <Route key={listRoute.ORDER_ADMIN} path={listRoute.ORDER_ADMIN}>
+                            <Order />
                         </Route>
                     </Switch>
 

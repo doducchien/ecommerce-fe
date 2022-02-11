@@ -3,6 +3,7 @@
         "antd",
         "authen",
         "reduxjs",
-        "SIGNUP"
+        "SIGNUP",
+        "infor"
     ]
 }

@@ -32,6 +32,10 @@ $font-size-header: 20px;
 @import './styles/admin/product/product_detail.scss';
 @import './styles/admin/comment/comment_on_product.scss';
 
+//order
+@import './styles/admin/order/order-page.scss';
+@import './styles/admin/order/detail-order.scss';
+
 
 *{
   margin: 0;

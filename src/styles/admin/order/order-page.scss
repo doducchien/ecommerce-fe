@@ -1,0 +1,16 @@
+.order-page{
+    width: 100%;
+    min-height: 100%;
+    background-color: white;
+    padding: 10px;
+    .item{
+        text-align: start;
+        cursor: pointer;
+        transition: 0.5s;
+        padding: 10px;
+        &:hover{
+            background-color: rgb(227, 233, 228);
+
+        }
+    }
+}

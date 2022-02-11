@@ -19,6 +19,11 @@ const PRODUCT_ADMIN = `${ADMIN}/product`;
 const PRODUCT_ADMIN_ADD = `${PRODUCT_ADMIN}/add`;
 const PRODUCT_ADMIN_DETAIL = `${PRODUCT_ADMIN}/detail/:id`;
 
+const ORDER_ADMIN = `${ADMIN}/order`;
+const ORDER_ADMIN_LIST = `${ADMIN}/order/`;
+const ORDER_ADMIN_DETAIL = `${ADMIN}/order/detail/:id`;
+
+
 
 export const listRoute = {
     HOST,
@@ -34,5 +39,8 @@ export const listRoute = {
     CATEGORY_ADMIN_UPDATE,
     CATEGORY_ADMIN_ADD,
     PRODUCT_ADMIN,
-    PRODUCT_ADMIN_DETAIL
+    PRODUCT_ADMIN_DETAIL,
+    ORDER_ADMIN,
+    ORDER_ADMIN_LIST,
+    ORDER_ADMIN_DETAIL
 }
