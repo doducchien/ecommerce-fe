@@ -1,51 +1,57 @@
-.detail-order{
-    display: flex;
-    justify-content: space-around;
-    .info{
-        width: 40%;
-        .item-property{
-            text-align: start;
-            width: 100%;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 5px 5px 5px 5px rgb(240, 241, 239);
-            margin-bottom: 20px;
-            cursor: pointer;
-            .label{
-                color: rgb(185, 180, 180);
-                font-size: 12px;
-                font-style: oblique 50deg;
-
-            }
-            .content{
-                padding: 5px;
-                border-radius: 5px;
-                
-            }
-        }
-    }
-
-    .list-product{
-        width: 40%;
-
-        .item-product{
-            text-align: left;
-            display: block;
-            width: 100%;
-            padding: 20px;
-            box-shadow: 5px 5px 5px 5px rgb(218, 214, 214);
-            color: black;
-            border-radius: 20px;
-
-            .key-item{
-                margin-bottom: 10px;
-                .label{
+.detail-order {
+    .content-detail {
+ 
+        .info {
+            .item-property {
+                display: inline-block;
+                text-align: start;
+                width: 50%;
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: 5px 5px 5px 5px rgb(240, 241, 239);
+                margin-bottom: 20px;
+                cursor: pointer;
+                .label {
+                    color: rgb(185, 180, 180);
+                    font-size: 12px;
+                    font-style: oblique 50deg;
+                }
+                .content {
                     display: inline-block;
-                    width: 180px;
+                    padding: 5px;
+                    border-radius: 5px;
                 }
             }
+        }
 
+        .list-product {
+
+            .item-product {
+                text-align: left;
+                display: block;
+                width: 100%;
+                padding: 20px;
+                box-shadow: 5px 5px 5px 5px rgb(218, 214, 214);
+                color: black;
+                border-radius: 20px;
+
+                .key-item {
+                    margin-bottom: 10px;
+                    .label {
+                        display: inline-block;
+                        width: 180px;
+                    }
+                }
+            }
         }
     }
-    
+
+    .btn-action{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        box-shadow: 5px 5px 5px 5px rgb(240, 241, 239);
+        padding: 20px 0;
+
+    }
 }

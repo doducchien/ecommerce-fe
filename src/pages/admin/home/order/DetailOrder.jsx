@@ -1,12 +1,13 @@
-import { Form, Input, Button, Checkbox, Row, Avatar, Tag } from 'antd';
+import { Form, Input, Button, Checkbox, Row, Avatar, Tag, Table, Spin } from 'antd';
 import {
     UserOutlined, MailOutlined, PhoneOutlined,
     HomeOutlined, DollarCircleOutlined, PlusSquareOutlined, SettingOutlined,
-     QuestionCircleOutlined, ExclamationCircleOutlined, PayCircleOutlined, ScanOutlined
+    QuestionCircleOutlined, ExclamationCircleOutlined, PayCircleOutlined, ScanOutlined
 } from '@ant-design/icons';
 import useDetailOder from './hook/detailOrder.hook';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { useUpdateDetailOrder } from './hook/updateDetailOrder.hook';
 const listColor = ["#f56a00", "#87d068", "#1890ff", '#36cfc9']
 
 const listType = [
@@ -64,10 +65,54 @@ const listType = [
 ]
 
 
+const columns = [
+    {
+        title: 'Product name',
+        dataIndex: 'name',
+        key: 'name',
+        render: (name, records) => {
+            const { product_id } = records;
+            return (
+                <Link to={"/admin/product/detail/" + product_id} key={product_id}>
+                    {name}
+                </Link>
+            )
+        }
+    },
+    {
+        title: 'Price(VND)',
+        dataIndex: 'price',
+        key: 'price',
+    },
+    {
+        title: 'Quantity',
+        dataIndex: 'quantity',
+        key: 'quantity',
+    },
+    {
+        title: "Options",
+        dataIndex: "options",
+        key: "options",
+        render: options => {
+            const { color, RAM: ram } = options;
+            return (
+                <div>
+                    <Tag color={color}>{color}</Tag>
+                    <Tag color='volcano'>{ram}GB</Tag>
+                </div>
+            )
+        }
+    }
+]
+
+
+
+
 
 export default function DetailOrder() {
     const history = useHistory();
     const { detailOrder } = useDetailOder();
+    const { updateStatus, updateDetailOrder } = useUpdateDetailOrder();
     const data = detailOrder?.data[0] || {};
 
 
@@ -84,7 +129,7 @@ export default function DetailOrder() {
             <div key={type} className='item-property'>
                 <Avatar
                     icon={icon}
-                    style={{backgroundColor: listColor[index%4]}}
+                    style={{ backgroundColor: listColor[index % 4] }}
                 />
                 &nbsp;
                 <span className='label'>{label}</span>
@@ -102,46 +147,46 @@ export default function DetailOrder() {
         for (let key in data) {
             if (data.hasOwnProperty(key) && !Array.isArray(data[key])) {
                 let value = "";
-                if(key == "payment_type"){
-                    switch(data[key]){
-                        case 1:{
+                if (key == "payment_type") {
+                    switch (data[key]) {
+                        case 1: {
                             value = "On COD";
                             break;
                         }
-                        case 2:{
+                        case 2: {
                             value = "On banking";
                             break;
                         }
 
-                        case 3:{
+                        case 3: {
                             value = "On store";
                             break;
                         }
-                        default:{
+                        default: {
                             value = "";
                         }
-                        
+
                     }
                 }
-                else if(key === "status"){
-                    switch(data[key]){
-                        case 0:{
+                else if (key === "status") {
+                    switch (data[key]) {
+                        case 0: {
                             value = "Cancel";
                             break;
                         }
-                        case 1:{
-                            value = "Unpaid";
+                        case 1: {
+                            value = "Not payment";
                             break;
                         }
 
-                        case 2:{
-                            value = "Paid";
+                        case 2: {
+                            value = "Done";
                             break;
                         }
-                        default:{
+                        default: {
                             value = "";
                         }
-                        
+
                     }
                 }
                 else value = data[key]
@@ -161,28 +206,31 @@ export default function DetailOrder() {
 
 
     return (
-        <div className="detail-order">
-            <div className="info">
-                {listInfo().map(item => {
-                    const { key, value } = item;
-                    return genItem(key, value)
-                })}
+        <Spin spinning={updateDetailOrder.isLoading}>
+            <div className="detail-order">
+                <div className='content-detail'>
+                    <div className="info">
+                        {listInfo().map(item => {
+                            const { key, value } = item;
+                            return genItem(key, value)
+                        })}
+
+                    </div>
+                    <div className="list-product">
+
+
+                        <Table columns={columns} dataSource={data?.products || []} />
+                    </div>
+                </div>
+
+                <div className='btn-action'>
+                    <Button onClick={() => updateStatus("finish", data.id)} size='large' type="primary" danger>DONE</Button>
+                    <Button onClick={() => updateStatus("cancel", data.id)} size='large'>Cancel</Button>
+
+                </div>
 
             </div>
-            <div className="list-product">
-                {(data?.products || []).map(item => {
-                    const {product_id, name, price, quantity } = item;
-                    console.log(item)
-                    return (
-                        <Link to={"/admin/product/detail/" + product_id} key={product_id} className='item-product'>
-                            
-                            <div className='key-item'><span className='label'><Tag color="magenta">Product name</Tag></span>{name}</div>
-                            <div className='key-item'><span className='label'><Tag color="cyan">Price</Tag></span>{price}</div>
-                            <div className='key-item'><span className='label'><Tag color="geekblue">Quantity</Tag></span>{quantity}</div>
-                        </Link>
-                    )
-                })}
-            </div>
-        </div>
+        </Spin>
+
     )
 }

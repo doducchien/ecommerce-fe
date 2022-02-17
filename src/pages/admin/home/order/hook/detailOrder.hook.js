@@ -11,6 +11,7 @@ const useDetailOder = ()=>{
     useEffect(()=>{
         dispatch(getDetailOrderAction(id));
     }, [])
+    
 
     return {detailOrder}
 

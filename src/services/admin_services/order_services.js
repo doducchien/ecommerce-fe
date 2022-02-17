@@ -12,8 +12,15 @@ const getDetailOrder = async(id)=>{
     return result;
 }
 
+const updateDetailOrder = async(method, id)=>{
+    const finalPath = `${orderPath}/${method}/${id}`;
+    const result = await apiService(true).putMethod(finalPath, {})
+    return result;
+}
+
 
 export const orderService = {
     getAllOrder,
-    getDetailOrder
+    getDetailOrder,
+    updateDetailOrder
 }

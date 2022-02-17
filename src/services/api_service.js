@@ -31,7 +31,7 @@ export default function apiService(requireToken = false) {
             return serverResponse;
         }
         catch (e) {
-
+            console.log(e)
         }
     }
 
