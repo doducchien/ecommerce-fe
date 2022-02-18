@@ -94,11 +94,12 @@ const columns = [
         dataIndex: "options",
         key: "options",
         render: options => {
-            const { color, RAM: ram } = options;
+            const color = options?.color;
+            const ram = options?.RAM;
             return (
                 <div>
-                    <Tag color={color}>{color}</Tag>
-                    <Tag color='volcano'>{ram}GB</Tag>
+                    {color && <Tag color={color}>{color}</Tag>}
+                    {ram && <Tag color='volcano'>{ram}GB</Tag>}
                 </div>
             )
         }

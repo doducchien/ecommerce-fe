@@ -4,7 +4,7 @@ import { UserOutlined } from '@ant-design/icons';
 
 import { Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 import useLayout from '../../../common_hook/layout_hook';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { listTitle } from '../../../constants/list_menu';
@@ -13,6 +13,8 @@ import Category from './category/Category';
 import { listRoute } from '../../../constants/list_route';
 import Product from './product/Product';
 import Order from './order/Order';
+import { resetAuthenInformation } from '../authentication/auth.slice';
+import { localSpace } from '../../../services/local/local_space';
 const { SubMenu } = Menu;
 
 // submenu keys of first level
@@ -24,10 +26,13 @@ const { Header, Footer, Sider, Content } = Layout;
 
 function Home() {
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const { path, url } = useRouteMatch()
     const { layoutPage, selectedMenuItem } = useHome();
     const [openKeys, setOpenKeys] = React.useState(['sub1']);
+
+    const username = useSelector(state => state.authen?.information?.data?.username);
 
     const onOpenChange = keys => {
         const latestOpenKey = keys.find(key => openKeys.indexOf(key) === -1);
@@ -38,6 +43,11 @@ function Home() {
         }
     };
 
+    const logout = ()=>{
+        dispatch(resetAuthenInformation());
+        localSpace.clearData();
+    }
+
 
 
 
@@ -45,7 +55,10 @@ function Home() {
 
 
     const menu = (
-        <div>Logout</div>
+        <Menu>
+            <Menu.Item onClick={logout}>Logout</Menu.Item>
+        </Menu>
+
     );
     const genMenu = () =>
 
@@ -83,7 +96,7 @@ function Home() {
                 <Header className='header-layout'>
                     <p className='header-title' >{layoutPage.label}</p>
                     <Dropdown.Button overlay={menu} placement="bottomCenter" icon={<UserOutlined />}>
-                        Chien Thit Cho
+                        {username}
                     </Dropdown.Button>
                 </Header>
                 <Content className='content-page'>

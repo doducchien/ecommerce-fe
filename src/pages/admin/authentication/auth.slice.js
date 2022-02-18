@@ -5,10 +5,11 @@ import { localSpace } from "../../../services/local/local_space";
 import { initialState } from "../../../constants/init_state";
 
 export const loginAction = createAsyncThunk("admin/authen/login", async (data, thunkApi) => {
-    thunkApi.dispatch(beforeLogin())
+    thunkApi.dispatch(resetAuthenInformation())
     const response = await authenServcie.login(data);
     console.log(response)
     thunkApi.dispatch(login(response));
+    thunkApi.dispatch(saveUsername({username: data.userName}))
     return response;
 
 
@@ -17,7 +18,7 @@ const authenSlice = createSlice({
     name: 'authen',
     initialState: localSpace.getData(keyLocal.AUTHEN) || { ...initialState },
     reducers: {
-        beforeLogin(state, action) {
+        resetAuthenInformation(state, action) {
             state.isLoading = false;
             state.isSuccess = null;
             state.information = null;
@@ -45,6 +46,11 @@ const authenSlice = createSlice({
             state.isSuccess = isSuccess;
             state.information = information;
 
+        },
+        saveUsername(state, action){
+            state.information.data.username = action.payload.username;
+            localSpace.setData(keyLocal.AUTHEN, state);
+
         }
 
     },
@@ -58,5 +64,5 @@ const authenSlice = createSlice({
 
 
 const { reducer: authen } = authenSlice;
-export const { login, beforeLogin, loginByLocal } = authenSlice.actions;
+export const { login, resetAuthenInformation, loginByLocal, saveUsername } = authenSlice.actions;
 export default authen;
