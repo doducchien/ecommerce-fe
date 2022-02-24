@@ -1,0 +1,20 @@
+.header-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // background-color: #bae7ff;
+    .logo-header{
+        width: fit-content;
+        text-align: center;
+        .img-bk{
+            height: 50px;
+            display: block;
+            margin: auto;
+        }
+    }
+    .search{
+        width: 30%;
+        height: 100%;
+
+    }
+}

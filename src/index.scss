@@ -21,7 +21,7 @@ $color-hover: #0c5e58;
 $font-size-header: 20px;
 
 
-
+//admin--------------------------------------------------
 @import './styles/admin/login_page.scss';
 @import './styles/admin/home.scss';
 @import './styles/admin/category/list_cateogry.scss';
@@ -36,6 +36,14 @@ $font-size-header: 20px;
 @import './styles/admin/order/order-page.scss';
 @import './styles/admin/order/detail-order.scss';
 
+
+//public------------------------------------------------
+
+//common_ui
+@import './styles/public/header_section.scss';
+@import './styles/public/home_page.scss';
+@import './styles/public/menu-section.scss';
+@import './styles/public/carousel_section.scss';
 
 *{
   margin: 0;
