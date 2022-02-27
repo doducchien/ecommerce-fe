@@ -23,7 +23,8 @@ const ORDER_ADMIN = `${ADMIN}/order`;
 const ORDER_ADMIN_LIST = `${ADMIN}/order/`;
 const ORDER_ADMIN_DETAIL = `${ADMIN}/order/detail/:id`;
 
-
+//HOME
+const UPLOAD_URL = `${HOST}/upload/`;
 
 export const listRoute = {
     HOST,
@@ -42,5 +43,6 @@ export const listRoute = {
     PRODUCT_ADMIN_DETAIL,
     ORDER_ADMIN,
     ORDER_ADMIN_LIST,
-    ORDER_ADMIN_DETAIL
+    ORDER_ADMIN_DETAIL,
+    UPLOAD_URL
 }
