@@ -16,9 +16,15 @@ const searchProduct = async(name) => {
     return result;
 }
 
+const addNewProduct = async(formData)=>{
+    const result = await apiService(true).postMethod(`${productPath}`, formData);
+    return result;
+}
+
 
 export const productService = {
     getAllProduct,
     getProductDetail,
-    searchProduct
+    searchProduct,
+    addNewProduct
 }

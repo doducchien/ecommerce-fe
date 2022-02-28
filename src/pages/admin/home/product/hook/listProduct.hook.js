@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { clearState, getAllProductAction, searchProduct, searchProductAction } from "../slice/listProduct.slice";
 import { utils } from "../../../../../ultil/ultil";
 import { ProductResponse } from "../../../../../response/ProductResponse";
+import { useHistory } from "react-router-dom";
 
 const size = 5;
 const useListProduct = () => {
-
+    const history = useHistory();
     const { information, isLoading, isSuccess, message: messageR } = useSelector(state => state.product.listProduct)
     const [data, setData] = useState([])
     const [page, setPage] = useState(1);
@@ -46,7 +47,11 @@ const useListProduct = () => {
 
     }
 
-    return { isLoading, data, keyword, onChangeKeyword, onSearch, onClear }
+    const routeToNewProduct = ()=>{
+        history.push("/admin/product/add");
+    }
+
+    return { isLoading, data, keyword, onChangeKeyword, onSearch, onClear, routeToNewProduct }
 }
 
 export default useListProduct;

@@ -3,6 +3,7 @@ import { Switch } from "react-router-dom/cjs/react-router-dom.min";
 import useLayout from "../../../../common_hook/layout_hook";
 import { listRoute } from "../../../../constants/list_route";
 import ListProduct from "./ListProduct";
+import NewProduct from "./NewProduct";
 import ProductDetail from "./ProductDetail";
 
 function Product() {
@@ -16,6 +17,9 @@ function Product() {
 
             <Route path={listRoute.PRODUCT_ADMIN_DETAIL} >
                 <ProductDetail />
+            </Route>
+            <Route path={listRoute.PRODUCT_ADMIN_ADD}>
+                <NewProduct/>
             </Route>
         </Switch>
     )
