@@ -1,20 +1,23 @@
 import { Spin, Card, Input, Row, Col, Button } from "antd";
 import useListProduct from "./hook/listProduct.hook";
 import { Image } from 'antd'
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { EditOutlined, EllipsisOutlined, SettingOutlined, PlusOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
-
 
 const { Meta } = Card;
 
 function ListProduct() {
-    const { isLoading, data, onChangeKeyword, onSearch, keyword, onClear } = useListProduct();
-
+    const { isLoading, data, onChangeKeyword, onSearch, keyword, onClear, routeToNewProduct } = useListProduct();
     return (
         <div className="list-product-page">
             <Spin spinning={isLoading}>
 
                 <Row justify="end">
+                    <Col>
+                        <Button icon={<PlusOutlined />} onClick={routeToNewProduct} style={{ height: '100%' }} type="primary" danger>
+                            New product
+                        </Button>
+                    </Col>
                     <Col span={6}>
                         <Input.Search
                             value={keyword}

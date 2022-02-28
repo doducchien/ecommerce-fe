@@ -34,7 +34,7 @@ const useAddCategory = () => {
     }, []);
 
     const beforeUpload = (file) => {
-
+        console.log(file)
         console.log(URL.createObjectURL(file))
         setSelectedImage([...selectedImage, file])
         return false;

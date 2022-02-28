@@ -7,7 +7,7 @@ const { Title, Text } = Typography
 export default function ProductDetail() {
     const { data, rateAvg, isLoading, id } = useProductDetail();
     const { display, cpu, ram, memory } = data?.specifications || {};
-
+    console.log(data)
     const genContent = (key, value, tagOption = { isTag: false, colorTag: 'greekblue' }) => {
         const { isTag, colorTag } = tagOption;
         return (

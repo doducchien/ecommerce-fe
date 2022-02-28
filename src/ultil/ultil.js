@@ -49,10 +49,21 @@ const convertDateTo_ddMMyyyy = (dateString) => {
     return `${date}/${month}/${year}`
 }
 
+const objectToFormData = (obj) => {
+    var formDta = new FormData();
+
+    for (var key in obj) {
+        formDta.append(key, obj[key]);
+    }
+
+    return formDta;
+}
+
 export const utils = {
     checkExistPhoto,
     showMessage,
     resetState,
     currencyFormat,
-    convertDateTo_ddMMyyyy
+    convertDateTo_ddMMyyyy,
+    objectToFormData
 }
