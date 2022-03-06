@@ -1,0 +1,12 @@
+.all-product-section{
+    .cart-product{
+        margin: 30px 10px;
+        height: 300px;
+        width: 240px;
+        .img-cover{
+            height: 150px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}

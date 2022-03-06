@@ -1,9 +1,14 @@
 .header-section{
+    position: sticky;
+    padding: 0 10% !important;
+    margin-bottom: 10px;
+    top: 0;
+    z-index: 1;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // background-color: #bae7ff;
-    .logo-header{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;    .logo-header{
         width: fit-content;
         text-align: center;
         .img-bk{

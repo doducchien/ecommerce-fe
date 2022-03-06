@@ -1,3 +1,8 @@
-.home-page{
-    padding: 0 50px;
+.home-page {
+    .content {
+        padding: 0 10%;
+        .content-product {
+            margin: 25px 0;
+        }
+    }
 }

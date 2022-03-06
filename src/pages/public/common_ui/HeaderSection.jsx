@@ -1,8 +1,14 @@
 import Search from "antd/lib/input/Search";
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from "react-redux";
+import { changeKeyword } from "../hooks/searchKeyword.hook";
+import { changeFetchProductMode } from "../slice/fetchProductMode.slice";
 function HeaderSection() {
-
-    const onSearch = value => console.log(value);
+    const dispatch = useDispatch();
+    const onSearch = value =>{
+        dispatch(changeFetchProductMode(`SEARCH-${value}`))
+        dispatch(changeKeyword(value))
+    }
 
 
     return (

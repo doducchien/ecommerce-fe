@@ -45,9 +45,14 @@ $font-size-header: 20px;
 @import './styles/public/home_page.scss';
 @import './styles/public/menu-section.scss';
 @import './styles/public/carousel_section.scss';
+@import './styles/public/footer_section.scss';
+
+@import './styles/public/all_product.scss';
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+
 }

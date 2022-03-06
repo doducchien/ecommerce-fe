@@ -23,6 +23,9 @@ const updateCategory = async (categoryId, categoryName, selectedImage) => {
     const result = await apiService(true).putMethod(`${categoryPath}/${categoryId}`, formData)
     return result;
 }
+
+
+
 export const categoryService = {
     getAllCategory,
     getDetailCategory,
