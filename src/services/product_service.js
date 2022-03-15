@@ -1,4 +1,4 @@
-import apiService from "../api_service"
+import apiService from "./api_service"
 const productPath = "api/v1/products"
 
 const getAllProduct = async (page, size, category_id) => {

@@ -42,7 +42,7 @@ class Option {
             discount, createdAt, updatedAt
         }
     ) {
-        this.optionNames = new OptionNames(option_names);
+        this.optionNames = new OptionNames({color: option_names?.color, disk: option_names?.disk});
         this.id = id;
         this.price = price;
         this.quantity = quantity;
@@ -57,8 +57,8 @@ class Option {
 
 class OptionNames {
     constructor({ color, disk }) {
-        this.color = color;
-        this.disk = disk;
+        this.color = color ||'default' ;
+        this.disk = disk || 64;
 
     }
 

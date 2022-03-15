@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { productService } from "../../../services/admin_services/product_service"
+import { productService } from "../../../services/product_service"
 import apiService from "../../../services/api_service"
 import { getAllProductAction, searchProductAction } from "../../admin/home/product/slice/listProduct.slice"
 import { initResultFetch } from "../const/initResultFetch"

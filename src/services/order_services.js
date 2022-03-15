@@ -1,4 +1,4 @@
-import apiService from "../api_service"
+import apiService from "./api_service"
 
 const orderPath = "api/v1/orders"
 

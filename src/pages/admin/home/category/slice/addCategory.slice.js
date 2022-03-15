@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { categoryService } from "../../../../../services/admin_services/category_service";
+import { categoryService } from "../../../../../services/category_service";
 import { initialState } from "../../../../../constants/init_state";
 
 export const addCategoryAction = createAsyncThunk("admin/category/add-category", async (data, thunkApi) => {

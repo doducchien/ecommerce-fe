@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { initialState, updateState } from "../../../../../constants/init_state";
-import { productService } from "../../../../../services/admin_services/product_service";
+import { productService } from "../../../../../services/product_service";
 import { utils } from "../../../../../ultil/ultil";
 import { addLoading, removeLoading } from "../../../../public/common_ui/slice/loading.slice";
 

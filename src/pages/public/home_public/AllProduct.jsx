@@ -1,6 +1,7 @@
 import { useAllProduct } from "../hooks/allProduct.hook";
 import { Card, Col, Row, Pagination, Typography } from "antd";
 import { listRoute } from "../../../constants/list_route";
+import { Link } from "react-router-dom";
 const { Meta } = Card;
 const { Text, Title } = Typography;
 
@@ -17,16 +18,18 @@ function AllProduct() {
                     const { specifications, price } = item;
                     const { ram, memory } = specifications;
                     return (
+                        <Link to={`/product/${item.id}`}>
+                            <Card
+                                className="cart-product"
+                                key={item.id}
+                                hoverable
+                                cover={<img className="img-cover" src={`${listRoute.UPLOAD}/${item.images[0]}`} />}
+                            >
+                                <Meta title={item.name} description={`RAM: ${ram} - Memory: ${memory}`} />
+                                <h3>{price}</h3>
+                            </Card>
+                        </Link>
 
-                        <Card
-                            className="cart-product"
-                            key={item.id}
-                            hoverable
-                            cover={<img className="img-cover" src={`${listRoute.UPLOAD}/${item.images[0]}`} />}
-                        >
-                            <Meta title={item.name} description={`RAM: ${ram} - Memory: ${memory}`} />
-                            <h3>{price}</h3>
-                        </Card>
 
                     )
                 })}

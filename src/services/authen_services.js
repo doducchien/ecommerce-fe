@@ -1,4 +1,4 @@
-import apiService from "../api_service";
+import apiService from "./api_service";
 
 const login = async (data) => {
 

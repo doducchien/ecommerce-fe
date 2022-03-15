@@ -6,6 +6,7 @@ import useInit from './common_hook/init_hook';
 import { Redirect } from 'react-router-dom';
 import HomePublic from './pages/public/home_public/HomePublic';
 import { listRoute } from './constants/list_route';
+import ProductDetail from './pages/public/home_public/ProductDetail';
 
 
 const AuthenPage = React.lazy(() => import("./pages/admin/Admin"))
@@ -21,6 +22,9 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <HomePublic />
+          </Route>
+          <Route path='/product/:id'>
+            <ProductDetail/>
           </Route>
 
           <Route path={listRoute.AUTHEN}>

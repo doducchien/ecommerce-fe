@@ -1,4 +1,4 @@
-import apiService from "../api_service";
+import apiService from "./api_service";
 const categoryPath = "api/v1/categories";
 const getAllCategory = async () => {
     const result = await apiService().getMethod(categoryPath, {});

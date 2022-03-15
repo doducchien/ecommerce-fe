@@ -1,0 +1,12 @@
+.product-detail-public{
+    padding: 20px 100px;
+    .each-option{
+        padding: 10px;
+        cursor: pointer;
+    }
+    .active{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    }
+
+}

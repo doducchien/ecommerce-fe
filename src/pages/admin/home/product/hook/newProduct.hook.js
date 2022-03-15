@@ -1,8 +1,8 @@
 import { message } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { categoryService } from "../../../../../services/admin_services/category_service";
-import { productService } from "../../../../../services/admin_services/product_service";
+import { categoryService } from "../../../../../services/category_service";
+import { productService } from "../../../../../services/product_service";
 import { utils } from "../../../../../ultil/ultil";
 import { getAllCategoryAction } from "../../category/slice/listCategory.slice";
 const initState = {
@@ -33,33 +33,13 @@ export const useNewProduct = () => {
     const dispatch = useDispatch();
      
     const [fileList, setFileList] = useState([
-        // {
-        //     uid: '-1',
-        //     name: 'image.png',
-        //     status: 'done',
-        //     url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        // },
+
     ]);
 
     const listCategory = useSelector(state => state?.category?.listCategory?.information);
     const listCategoryUse = listCategory?.data || [];
 
-    // const getImage = (e) => {
-    //     console.log('Upload event:', e);
 
-    //     if (Array.isArray(e)) {
-    //         return e;
-    //     }
-    //     return e && e.fileList;
-    // }
-
-
-    // const onChange = ({ fileList: newFileList }) => {
-        
-    //     // console.log(URL.createObjectURL(newFileList))
-
-    //     setFileList(newFileList);
-    // };
 
     const onPreview = async file => {
         let src = file.url;

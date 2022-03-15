@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { initialState, updateState } from "../../../../../constants/init_state";
-import { orderService } from "../../../../../services/admin_services/order_services";
+import { orderService } from "../../../../../services/order_services";
 
 export const updateDetailOrderAction = createAsyncThunk("admin/order/update-detail-order", async(data, thunkApi)=>{
     const {method, id} = data;

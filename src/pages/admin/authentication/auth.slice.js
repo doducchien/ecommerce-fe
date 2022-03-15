@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { authenServcie } from "../../../services/admin_services/authen_services";
+import { authenServcie } from "../../../services/authen_services";
 import { keyLocal } from "../../../constants/key_local";
 import { localSpace } from "../../../services/local/local_space";
 import { initialState } from "../../../constants/init_state";

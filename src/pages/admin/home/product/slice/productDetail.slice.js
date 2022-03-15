@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { initialState, updateState } from "../../../../../constants/init_state";
-import { productService } from "../../../../../services/admin_services/product_service";
+import { productService } from "../../../../../services/product_service";
 
 export const getProductDetailAction = createAsyncThunk('/admin/product/product-detail', async (data, thunkApi) => {
     const response = await productService.getProductDetail(data);

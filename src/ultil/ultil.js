@@ -51,12 +51,20 @@ const convertDateTo_ddMMyyyy = (dateString) => {
 
 const objectToFormData = (obj) => {
     var formDta = new FormData();
-
     for (var key in obj) {
         formDta.append(key, obj[key]);
     }
 
     return formDta;
+}
+
+const objectToUrlEncoded = (obj)=>{
+    const params = new URLSearchParams();
+    for(var key in obj){
+        params.append(key, obj[key])
+    }
+
+    return params;
 }
 
 export const utils = {
@@ -65,5 +73,6 @@ export const utils = {
     resetState,
     currencyFormat,
     convertDateTo_ddMMyyyy,
-    objectToFormData
+    objectToFormData,
+    objectToUrlEncoded
 }

@@ -1,4 +1,5 @@
-import apiService from "../api_service"
+import { utils } from "../ultil/ultil";
+import apiService from "./api_service"
 
 const commentPath = 'api/v1/comments'
 const getCommentOnProduct = async (id) => {
@@ -11,5 +12,11 @@ const getCommentOnProductByStars = async (id, star) => {
     return result;
 }
 
+const addComment = async (data)=>{
+    const formData = utils.objectToUrlEncoded(data);
+    const result = await apiService().postMethod(commentPath, formData);
+    return result;
+}
 
-export const commentService = { getCommentOnProduct, getCommentOnProductByStars }
+
+export const commentService = { getCommentOnProduct, getCommentOnProductByStars, addComment }

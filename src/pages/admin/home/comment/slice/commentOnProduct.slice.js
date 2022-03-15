@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { initialState, updateState } from "../../../../../constants/init_state";
-import { commentService } from "../../../../../services/admin_services/comment_service";
+import { commentService } from "../../../../../services/comment_service";
 import { utils } from "../../../../../ultil/ultil";
 
 

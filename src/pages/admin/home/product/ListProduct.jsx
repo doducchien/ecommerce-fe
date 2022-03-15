@@ -41,7 +41,7 @@ function ListProduct() {
 
                     {
                         data.map((item) => {
-                            const price = item.price || "9000" + "VND";
+                            const price = item?.price || "9000" + "VND";
                             return (
 
                                 <Link
